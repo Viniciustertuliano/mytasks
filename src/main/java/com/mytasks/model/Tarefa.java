@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Tarefas {
+public class Tarefa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
