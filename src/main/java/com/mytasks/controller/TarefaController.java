@@ -22,6 +22,7 @@ import com.mytasks.service.TarefaService;
 
 
 //@CrossOrigin
+
 @RestController
 @RequestMapping("/tarefa")
 public class TarefaController {
