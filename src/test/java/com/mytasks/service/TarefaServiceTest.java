@@ -1,4 +1,4 @@
-package br.com.mytasks.service;
+package com.mytasks.service;
 
 import java.util.Optional;
 
