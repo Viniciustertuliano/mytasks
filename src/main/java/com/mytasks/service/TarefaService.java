@@ -13,38 +13,37 @@ import com.mytasks.repository.TarefaRepository;
 
 @Service
 public class TarefaService {
-	
+
 	@Autowired
 	private TarefaRepository repository;
 	
-	
 	public Tarefa concluirTarefaPorId(Integer id) {
+		Tarefa tarefa = repository
+				.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException());
 		
-		Tarefa tarefa = repository.findById(id).orElseThrow(() -> new EntityNotFoundException());
-		
-		if (TarefaStatus.CANCELADO.equals(tarefa.getStatus())) 
+		if (TarefaStatus.CANCELADA.equals(tarefa.getStatus()))
 			throw new IllegalStateException();
 		
-		tarefa.setStatus(TarefaStatus.CONCLUIDO);
+		tarefa.setStatus(TarefaStatus.CONCLUIDA);
 		return repository.save(tarefa);
 	}
-	
-	public List<Tarefa> getTodasTarefas(){
+
+	public List<Tarefa> getTodasTarefas() {
 		return repository.findAll();
 	}
-	
-	
-	public Tarefa getTarefaPorId(Integer id){
+
+	public Tarefa getTarefaPorId(Integer id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException());
 	}
-	
+
 	public Tarefa salvarTarefa(Tarefa tarefa) {
 		return repository.save(tarefa);
 	}
-	
+
 	public Tarefa atualizarTarefa(Integer id, Tarefa tarefa) {
-		if (!repository.existsById(id) )
+		if ( !repository.existsById(id) )
 			throw new EntityNotFoundException();
 		
 		tarefa.setId(id);

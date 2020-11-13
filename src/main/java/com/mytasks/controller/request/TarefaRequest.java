@@ -5,18 +5,16 @@ import java.time.LocalDate;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.springframework.lang.NonNull;
 
 public class TarefaRequest {
 
-	
-	private Integer Id;
+	private Integer id;
 	
 	@NotBlank
 	@Max(value = 100)
-	private  String titulo;
+	private String titulo;
 	
 	private String descricao;
 	
@@ -25,16 +23,18 @@ public class TarefaRequest {
 	
 	@Size(min = 1, max = 3)
 	private Integer prioridade;
-	
-	@NonNull
+		
+	@NotNull
 	private Integer categoriaId;
+	
+	private String status = "ABERTA";
 
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -76,4 +76,13 @@ public class TarefaRequest {
 	public void setCategoriaId(Integer categoriaId) {
 		this.categoriaId = categoriaId;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

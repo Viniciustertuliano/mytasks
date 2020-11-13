@@ -8,15 +8,14 @@ import javax.persistence.Id;
 
 @Entity
 public class TarefaCategoria {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(length = 100, nullable = false)
+	@Column(nullable = false, length = 100)
 	private String nome;
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -32,7 +31,5 @@ public class TarefaCategoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	
-
 }

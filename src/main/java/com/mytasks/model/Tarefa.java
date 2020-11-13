@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Tarefa {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -23,15 +23,14 @@ public class Tarefa {
 	
 	@Column(length = 500)
 	private String descricao;
-		
-	private LocalDate dataEntrega;
 	
+	private LocalDate dataEntrega;
 	
 	private Integer prioridade;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private TarefaStatus status = TarefaStatus.ABERTO;
+	private TarefaStatus status = TarefaStatus.ABERTA;
 	
 	@ManyToOne
 	private TarefaCategoria categoria;
@@ -91,6 +90,5 @@ public class Tarefa {
 	public void setCategoria(TarefaCategoria categoria) {
 		this.categoria = categoria;
 	}
-	
 	
 }

@@ -19,14 +19,14 @@ public class CarregaBaseDeDados {
 
 	@Autowired
 	private TarefaCategoriaRepository categoriaRepo;
-
+	
 	@Autowired
 	private TarefaRepository tarefaRepo;
-
+	
 	@Bean
 	CommandLineRunner execute() {
 		return args -> {
-
+			
 			TarefaCategoria categoriaProfissional = new TarefaCategoria();
 			categoriaProfissional.setNome("Profissional");
 			categoriaRepo.save(categoriaProfissional);
@@ -34,21 +34,21 @@ public class CarregaBaseDeDados {
 			TarefaCategoria categoriaPessoal = new TarefaCategoria();
 			categoriaPessoal.setNome("Pessoal");
 			categoriaRepo.save(categoriaPessoal);
-
+			
 			Tarefa tarefa1 = new Tarefa();
 			tarefa1.setTitulo("Estudar Java e Spring Boot");
 			tarefa1.setDataEntrega(LocalDate.now().plusDays(1));
 			tarefa1.setCategoria(categoriaProfissional);
 			tarefaRepo.save(tarefa1);
-
+			
 			Tarefa tarefa2 = new Tarefa();
-			tarefa2.setTitulo("Passear com a Cecilia");
+			tarefa2.setTitulo("Passear com cachorro");
 			tarefa2.setDataEntrega(LocalDate.now().plusDays(1));
 			tarefa2.setCategoria(categoriaPessoal);
 			tarefaRepo.save(tarefa2);
-
-
+			
+			
 		};
 	}
-
+	
 }

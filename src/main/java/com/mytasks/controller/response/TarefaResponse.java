@@ -2,15 +2,17 @@ package com.mytasks.controller.response;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class TarefaResponse {
 
-	
 	private Integer id;
 	
 	private String titulo;
 	
 	private String descricao;
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate dataEntrega;
 	
 	private Integer prioridade;
@@ -74,6 +76,5 @@ public class TarefaResponse {
 	public void setCategoriaId(Integer categoriaId) {
 		this.categoriaId = categoriaId;
 	}
-	
 	
 }
